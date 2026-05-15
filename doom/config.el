@@ -4,7 +4,7 @@
       user-mail-address "levenrok@proton.me")
 
 (setq doom-font (font-spec :family "BlexMono Nerd Font SemiBold" :size 17)
-      doom-variable-pitch-font (font-spec :family "SF Pro Display" :size 14))
+      doom-variable-pitch-font (font-spec :family "BlexMono Nerd Font Mono" :size 11))
 
 (setq display-line-numbers-type 'relative)
 
@@ -14,13 +14,19 @@
 ;; Keybindings
 (map! :leader
       :desc "Toggle Treemacs" "e" #'+treemacs/toggle)
+(map! :leader
+      :desc "Open Dired" "SPC" #'dired)
+
 (map! :desc "Toggle VTerm"
       :n "C-`" #'+vterm/toggle)
 (map! :desc "Search for files in the current directory"
       :n "C-p" #'projectile-find-file)
 (map! :desc "Search for text in the current directory"
       :n "C-f" #'+default/search-project)
-(map! :desc "Comment/Uncomment lines"
+
+(map! :desc "dired-buffer"
+      :nvi "C-x d" #'dired-jump)
+(map! :desc "comment/uncomment lines"
       :nvi "C-/" #'evilnc-comment-or-uncomment-lines)
 
 
@@ -28,7 +34,7 @@
 (setq org-directory "~/Developer/Docs/Org")
 
 (custom-theme-set-faces!
-  'doom-tokyo-night
+  '(doom-nord-light doom-tokyo-night)
   '(org-level-8 :inherit outline-3 :height 1.0)
   '(org-level-7 :inherit outline-3 :height 1.0)
   '(org-level-6 :inherit outline-3 :height 1.1)
