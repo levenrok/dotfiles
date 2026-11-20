@@ -1,36 +1,22 @@
 return {
     "neovim/nvim-lspconfig",
-    dependencies = {
-        "pearofducks/ansible-vim",
-    },
     config = function()
         local servers = {
             -- Scripting
-            nixd = true,
-            lua_ls = true,
             bashls = true,
-            basedpyright = true,
 
-            -- Configuration
-            yamlls = {
-                settings = {
-                    schemas = {
-                        ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] =
-                        "*compose.{yml,yaml}",
-                        ["https://kubernetesjsonschema.dev/v1.28.0-standalone/all.json"] = "*.k8s.yaml",
-                    },
-                },
-            },
-            taplo = true,
-            jsonls = true,
+            -- Systems Programming
+            clangd = true,
+            gopls = true,
 
-            just = true,
-            docker_language_server = true,
-            nginx_language_server = true,
-            hyprls = true,
+            -- Web Development
+            html = true,
+            cssls = true,
+            ts_ls = true,
+            tailwindcss = true
         }
-        local capabilities = require("blink.cmp").get_lsp_capabilities()
 
+        local capabilities = require("blink.cmp").get_lsp_capabilities()
         for name, config in pairs(servers) do
             if config == true then
                 config = {}

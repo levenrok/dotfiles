@@ -27,6 +27,7 @@ return {
 					lazydev = {
 						name = "LazyDev",
 						module = "lazydev.integrations.blink",
+                        -- make lazydev completions top priority (see `:h blink.cmp`) 
 						score_offset = 100,
 					},
 				},
@@ -41,7 +42,6 @@ return {
 		opts = {
 			library = {
 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-				{ "nvim-dap-ui" },
 			},
 		},
 	},

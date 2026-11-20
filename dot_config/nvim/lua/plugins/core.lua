@@ -19,45 +19,9 @@ return {
 		end,
 	},
 	{
-		"nvim-treesitter/nvim-treesitter",
-		branch = "master",
-		lazy = false,
-		build = ":TSUpdate",
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				auto_install = true,
-				highlight = { enable = true, disable = { "just" } },
-				indent = { enable = true },
-			})
-		end,
-	},
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-			"nvim-tree/nvim-web-devicons",
-		},
-        lazy = false,
-        opts = {
-            filesystem = {
-                filtered_items = {
-                    visible = true,
-                },
-            },
-        },
-	},
-	{
 		"m4xshen/autoclose.nvim",
 		config = function()
 			require("autoclose").setup()
-		end,
-	},
-	{
-		"norcalli/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup()
 		end,
 	},
 }
